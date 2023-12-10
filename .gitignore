@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+.replit
+index.html
+transform.py
+
 
 # Distribution / packaging
 .Python
