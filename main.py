@@ -1,9 +1,10 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+import argparse
 import datetime
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
 import numpy as np
 import pandas
-import argparse
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 def create_parser ():
@@ -24,7 +25,6 @@ def get_year_form_in_russian(years):
         
         
 def main():
-    data_today = datetime.datetime.now()
     year_today = datetime.datetime.now().year
     starting_year = 1920
     difference = year_today - starting_year
