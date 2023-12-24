@@ -35,7 +35,7 @@ def main():
 
     excel_data_df = pandas.read_excel(args.excelfile)
     excel_data_df.replace({np.nan: None}, inplace=True)
-    organized = excel_data_df.groupby('Категория').apply(lambda x: x.drop('Категория', axis=1).to_dict(orient='records')).to_dict()
+    drink_data = excel_data_df.groupby('Категория').apply(lambda x: x.drop('Категория', axis=1).to_dict(orient='records')).to_dict()
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -47,7 +47,7 @@ def main():
     rendered_page = template.render(
         number=difference,
         years=years_correct,
-        product_data=organized,
+        product_data=drink_data,
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
